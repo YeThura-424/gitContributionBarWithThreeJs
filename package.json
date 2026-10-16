@@ -1,0 +1,19 @@
+{
+  "name": "contribution-bar",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tailwindcss -i ./style.css -o ./dist/style.css --minify",
+    "predev": "npm run build",
+    "dev": "concurrently --kill-others --names css,server \"npm:watch:css\" \"npm:serve\"",
+    "watch:css": "tailwindcss -i ./style.css -o ./dist/style.css --watch",
+    "serve": "http-server . -a localhost -p 5173 -c-1",
+    "test": "node --test tests/*.test.cjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.0",
+    "concurrently": "^10.0.6",
+    "http-server": "^14.1.1",
+    "tailwindcss": "^4.3.0"
+  }
+}
