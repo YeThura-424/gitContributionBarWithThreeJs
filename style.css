@@ -1,0 +1,64 @@
+@import "tailwindcss" source(none);
+@source "./index.html";
+@source "./main.js";
+@source "./js";
+
+@theme inline {
+  /* Keep pixel-based dimensions independent of the page's 13px root font. */
+  --spacing: 4px;
+  --radius-xs: 2px;
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: "Courier New", monospace;
+  --color-page: var(--page);
+  --color-panel: var(--panel);
+  --color-sidebar: var(--sidebar);
+  --color-scene: var(--scene);
+  --color-field: var(--field);
+  --color-selected: var(--selected);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-error: var(--error);
+}
+
+/* Palette tokens are shared by Tailwind utilities and the 3D scene. */
+:root {
+  color-scheme: dark;
+  --page: #10160e; --panel: #171f14; --sidebar: #141c11; --scene: #0b1714;
+  --field: #10170d; --selected: #232e1c; --border: #2b3525;
+  --text: #e9eedf; --muted: #a4b292; --accent: #c1ed82; --accent-ink: #112004; --error: #ffad9b;
+  --level-0: #233d2d; --level-1: #086338; --level-2: #0d9651; --level-3: #34cd72; --level-4: #aff69d;
+  --icon-filter: invert(87%) sepia(15%) saturate(450%) hue-rotate(30deg);
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --icon-filter: none;
+  --page: #f0f3e9; --panel: #f8faef; --sidebar: #f2f5e9; --scene: #e8eddf;
+  --field: #ffffff; --selected: #e1ead2; --border: #d0d9c3; --text: #24321b;
+  --muted: #5a6d48; --accent: #4d7327; --accent-ink: #ffffff; --error: #a12d24;
+  --level-0: #d7dfc8; --level-1: #abc886; --level-2: #83ad5b; --level-3: #588838; --level-4: #346426;
+}
+:root[data-palette="midnight"] {
+  --page: #10101b; --panel: #191927; --sidebar: #151522; --scene: #0c1020;
+  --field: #10101c; --selected: #29233b; --border: #333047; --text: #efebfa;
+  --muted: #b1a6c9; --accent: #c5a2fa; --accent-ink: #221136;
+  --level-0: #28263d; --level-1: #514074; --level-2: #7855b1; --level-3: #a47ce0; --level-4: #d6bafa;
+}
+
+@layer base {
+  html { @apply bg-page font-sans text-[13px] leading-[normal] text-text; }
+  button { @apply cursor-pointer rounded-[5px] border border-border bg-transparent text-text hover:bg-selected; }
+  button:disabled, input:disabled { @apply cursor-wait opacity-50; }
+  button:focus-visible, a:focus-visible, input:focus-visible { @apply outline-2 outline-offset-4 outline-accent; }
+  button, a, input { -webkit-tap-highlight-color: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
