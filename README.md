@@ -2,6 +2,8 @@
 
 Explore GitHub contribution history as animated 3D bars. Built for fellow developers and GitHub enthusiasts curious about coding activity, Contribution Bar turns a familiar contribution calendar into a landscape you can rotate, zoom, and explore.
 
+**[Live demo](https://git-contribution-graph.netlify.app/)**
+
 ![Contribution Bar desktop preview with the Forest palette, 3D graph, animation controls, and contribution statistics](docs/previews/forest-desktop.png)
 
 <table>
@@ -17,7 +19,7 @@ Explore GitHub contribution history as animated 3D bars. Built for fellow develo
   <a href="docs/previews/forest-mobile.png"><img src="docs/previews/forest-mobile.png" alt="Contribution Bar mobile layout with configuration controls above the graph and summary" width="320" /></a>
 </details>
 
-Each preview is captured from the running app. Click a thumbnail to see it at full size.
+Each preview is captured from the running app with Linus Torvalds' GitHub profile ([@torvalds](https://github.com/torvalds)). Click a thumbnail to see it at full size.
 
 Whether you're looking back at a productive year, exploring a fellow developer's public activity, or simply enjoying an animated contribution graph, this project gives you a different perspective on the history behind those little squares.
 
