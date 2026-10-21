@@ -147,14 +147,14 @@ test('API loading covers the scene until response parsing finishes', async () =>
 
 test('the default profile can fetch on startup without a form event', async () => {
   const c = runtime();
-  c.usernameInput.value = 'yethura-424';
+  c.usernameInput.value = 'torvalds';
   let requestedUrl;
   c.fetch = async url => {
     requestedUrl = url;
     return {ok: true, json: async () => ({contributions: [{count: 5}], total: {2026: 5}})};
   };
   await c.loadUserContributions();
-  assert.equal(requestedUrl, 'https://github-contributions-api.jogruber.de/v4/yethura-424?y=all');
+  assert.equal(requestedUrl, 'https://github-contributions-api.jogruber.de/v4/torvalds?y=all');
   assert.equal(c.graphData[0].count, 5);
   assert.equal(c.isFetching, false);
 });
